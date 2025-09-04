@@ -1,0 +1,327 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Painel de Inteligência de Atendimento (Dados Validados) | Suridata</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chartjs-plugin-datalabels@2.0.0"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;900&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #f4f7f9;
+        }
+        .chart-container {
+            position: relative;
+            width: 100%;
+            height: 380px;
+            margin-top: 1.5rem;
+        }
+        .main-card {
+            background-color: white;
+            border-radius: 0.75rem;
+            padding: 2rem;
+            box-shadow: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
+            margin-bottom: 2.5rem;
+        }
+        .kpi-card {
+            background-color: white;
+            border-radius: 0.75rem;
+            padding: 1.5rem;
+            box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+        .kpi-value { font-size: 2.8rem; font-weight: 900; line-height: 1; color: #003f5c; }
+        .kpi-label { font-size: 1rem; color: #4A5568; margin-top: 0.5rem; }
+        .kpi-variation { font-size: 1.125rem; font-weight: 600; }
+    </style>
+</head>
+<body class="text-gray-800">
+
+    <div class="container mx-auto p-4 md:p-8">
+        
+        <header class="text-center mb-12">
+            <h1 class="text-4xl md:text-5xl font-extrabold text-[#003f5c] mb-2">Painel de inteligência de atendimento</h1>
+            <p class="text-lg text-gray-600">Análise aprofundada com dados validados da Suridata (Jan-Ago 2025)</p>
+        </header>
+
+        <section class="main-card">
+            <h2 class="text-3xl font-bold text-center mb-6 text-[#374c80]">Indicadores-chave de performance (KPIs)</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+                 <div class="kpi-card">
+                    <div class="flex items-baseline justify-center gap-2">
+                        <div class="kpi-value">555</div>
+                         <div class="kpi-variation text-green-600">▲ 10.1%</div>
+                    </div>
+                    <div class="kpi-label">Total de Chamados (YTD)</div>
+                </div>
+                <div class="kpi-card">
+                    <div class="flex items-baseline justify-center gap-2">
+                        <div class="kpi-value">79</div>
+                        <div class="kpi-variation text-gray-500">~ 0%</div>
+                    </div>
+                    <div class="kpi-label">Chamados em Agosto</div>
+                </div>
+                <div class="kpi-card">
+                    <div class="flex items-baseline justify-center gap-2">
+                        <div class="kpi-value">5.2h</div>
+                        <div class="kpi-variation text-red-600">▲ 23.8%</div>
+                    </div>
+                    <div class="kpi-label">TMR Geral (Mediana YTD)</div>
+                </div>
+                <div class="kpi-card">
+                    <div class="flex items-baseline justify-center gap-2">
+                       <div class="kpi-value">4.9h</div>
+                        <div class="kpi-variation text-green-600">▼ 3.9%</div>
+                    </div>
+                    <div class="kpi-label">TMR em Agosto</div>
+                </div>
+            </div>
+             <p class="text-xs text-center text-gray-400 mt-4">Variação de Agosto vs. Julho</p>
+        </section>
+
+        <section class="main-card">
+            <h2 class="text-3xl font-bold text-center mb-2 text-[#374c80]">Top 10 Acionadores - Agosto</h2>
+            <p class="text-center text-gray-600 max-w-3xl mx-auto mb-8">
+                Ranking dos profissionais que mais iniciaram chamados em Agosto, identificando os principais pontos de contato.
+            </p>
+            <div class="max-w-6xl mx-auto">
+                <div class="grid grid-cols-1 lg:grid-cols-3 gap-x-6 gap-y-4">
+                    <!-- Coluna 1 -->
+                    <div class="space-y-4">
+                        <div class="flex items-center justify-between p-3 bg-gray-50 rounded-lg"><div class="flex items-center"><span class="text-lg font-bold text-gray-400 mr-3 w-6 text-center">1</span><div><p class="font-semibold text-gray-800">Wanderlaine Mendes</p><p class="text-sm text-gray-500">RBM Corretora - <span class="text-xs italic">Relatórios</span></p></div></div><div class="text-2xl font-black text-[#003f5c]">10</div></div>
+                        <div class="flex items-center justify-between p-3 bg-gray-50 rounded-lg"><div class="flex items-center"><span class="text-lg font-bold text-gray-400 mr-3 w-6 text-center">4</span><div><p class="font-semibold text-gray-800">Amanda Carvalho</p><p class="text-sm text-gray-500">Sciath - <span class="text-xs italic">Reajustes</span></p></div></div><div class="text-2xl font-black text-[#003f5c]">4</div></div>
+                        <div class="flex items-center justify-between p-3 bg-gray-50 rounded-lg"><div class="flex items-center"><span class="text-lg font-bold text-gray-400 mr-3 w-6 text-center">7</span><div><p class="font-semibold text-gray-800">Edilaine Freitas</p><p class="text-sm text-gray-500">Ritacco - <span class="text-xs italic">Divergências</span></p></div></div><div class="text-2xl font-black text-[#003f5c]">3</div></div>
+                        <div class="flex items-center justify-between p-3 bg-gray-50 rounded-lg"><div class="flex items-center"><span class="text-lg font-bold text-gray-400 mr-3 w-6 text-center">10</span><div><p class="font-semibold text-gray-800">Larissa Gagliano</p><p class="text-sm text-gray-500">Bencorp - <span class="text-xs italic">Atualizações</span></p></div></div><div class="text-2xl font-black text-[#003f5c]">2</div></div>
+                    </div>
+                    <!-- Coluna 2 -->
+                    <div class="space-y-4">
+                        <div class="flex items-center justify-between p-3 bg-gray-50 rounded-lg"><div class="flex items-center"><span class="text-lg font-bold text-gray-400 mr-3 w-6 text-center">2</span><div><p class="font-semibold text-gray-800">Bruna Alvarenga da Silva</p><p class="text-sm text-gray-500">AMARQ - <span class="text-xs italic">Relatórios</span></p></div></div><div class="text-2xl font-black text-[#003f5c]">8</div></div>
+                        <div class="flex items-center justify-between p-3 bg-gray-50 rounded-lg"><div class="flex items-center"><span class="text-lg font-bold text-gray-400 mr-3 w-6 text-center">5</span><div><p class="font-semibold text-gray-800">Fernanda Lacerda</p><p class="text-sm text-gray-500">Unnimax - <span class="text-xs italic">Relatórios</span></p></div></div><div class="text-2xl font-black text-[#003f5c]">4</div></div>
+                        <div class="flex items-center justify-between p-3 bg-gray-50 rounded-lg"><div class="flex items-center"><span class="text-lg font-bold text-gray-400 mr-3 w-6 text-center">8</span><div><p class="font-semibold text-gray-800">Aline Santiago</p><p class="text-sm text-gray-500">Bencorp - <span class="text-xs italic">Acessos</span></p></div></div><div class="text-2xl font-black text-[#003f5c]">2</div></div>
+                    </div>
+                    <!-- Coluna 3 -->
+                    <div class="space-y-4">
+                        <div class="flex items-center justify-between p-3 bg-gray-50 rounded-lg"><div class="flex items-center"><span class="text-lg font-bold text-gray-400 mr-3 w-6 text-center">3</span><div><p class="font-semibold text-gray-800">Renata França</p><p class="text-sm text-gray-500">Unigets - <span class="text-xs italic">Relatórios</span></p></div></div><div class="text-2xl font-black text-[#003f5c]">5</div></div>
+                        <div class="flex items-center justify-between p-3 bg-gray-50 rounded-lg"><div class="flex items-center"><span class="text-lg font-bold text-gray-400 mr-3 w-6 text-center">6</span><div><p class="font-semibold text-gray-800">Lucas Lotufo</p><p class="text-sm text-gray-500">EMF Benefícios - <span class="text-xs italic">Acessos</span></p></div></div><div class="text-2xl font-black text-[#003f5c]">3</div></div>
+                        <div class="flex items-center justify-between p-3 bg-gray-50 rounded-lg"><div class="flex items-center"><span class="text-lg font-bold text-gray-400 mr-3 w-6 text-center">9</span><div><p class="font-semibold text-gray-800">Aimee Carvalho</p><p class="text-sm text-gray-500">IR77 - <span class="text-xs italic">Relatórios</span></p></div></div><div class="text-2xl font-black text-[#003f5c]">2</div></div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="main-card">
+            <h2 class="text-3xl font-bold text-center mb-2 text-[#374c80]">Performance e Volume Mensal</h2>
+             <p class="text-center text-gray-600 max-w-3xl mx-auto mb-8">
+                Acompanhar a evolução do volume de chamados e do tempo de resposta (TMR) oferece uma visão completa do esforço e da eficiência do atendimento.
+            </p>
+            <div>
+                <h3 class="text-xl font-bold text-center">Comparativo Mensal: Chamados vs. TMR</h3>
+                <div class="chart-container">
+                    <canvas id="combinedVolumeChart"></canvas>
+                </div>
+            </div>
+        </section>
+        
+        <section class="main-card">
+            <h2 class="text-3xl font-bold text-center mb-2 text-[#374c80]">Performance de TMR por Área</h2>
+            <p class="text-center text-gray-600 max-w-3xl mx-auto mb-8">
+                A eficiência de resposta varia conforme a complexidade tratada por cada departamento. Este gráfico mostra a evolução do TMR mediano para cada área.
+            </p>
+            <div>
+                 <h3 class="text-xl font-bold text-center">TMR Mediano Mensal por Área</h3>
+                <div class="chart-container">
+                    <canvas id="monthlyTmrByDeptChart"></canvas>
+                </div>
+            </div>
+        </section>
+        
+        <section class="main-card">
+            <h2 class="text-3xl font-bold text-center mb-2 text-[#374c80]">Volume de Chamados por Área</h2>
+            <p class="text-center text-gray-600 max-w-3xl mx-auto mb-8">
+                A distribuição do volume de chamados entre as áreas ajuda a identificar a carga de trabalho de cada departamento.
+            </p>
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-12">
+                <div>
+                    <h3 class="text-xl font-bold text-center">Volume Total por Área (YTD)</h3>
+                    <div class="chart-container">
+                        <canvas id="volumeByAreaPieChart"></canvas>
+                    </div>
+                </div>
+                <div>
+                    <h3 class="text-xl font-bold text-center">Distribuição Mensal de Chamados</h3>
+                    <div class="chart-container">
+                        <canvas id="volumeByAreaMonthlyChart"></canvas>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="main-card">
+            <h2 class="text-3xl font-bold text-center mb-2 text-[#374c80]">Top 10 Temas de Acionamento (Agosto)</h2>
+            <p class="text-center text-gray-600 max-w-3xl mx-auto mb-8">
+                Ranking das solicitações e dúvidas mais frequentes dos clientes no mês de Agosto, indicando os principais motivos de contato.
+            </p>
+             <div class="max-w-4xl mx-auto">
+                <div class="overflow-x-auto">
+                    <table class="w-full text-left">
+                        <thead class="bg-gray-50 border-b">
+                            <tr>
+                                <th class="p-4 text-sm font-semibold text-gray-600">Rank</th>
+                                <th class="p-4 text-sm font-semibold text-gray-600">Tema Principal do Chamado</th>
+                                <th class="p-4 text-sm font-semibold text-gray-600 text-center">Volume</th>
+                            </tr>
+                        </thead>
+                        <tbody class="divide-y">
+                            <tr class="hover:bg-gray-50"><td class="p-4 font-bold text-gray-500">1</td><td class="p-4 font-semibold text-gray-800">Solicitação de atualização de relatório</td><td class="p-4 text-center text-xl font-bold text-[#003f5c]">23</td></tr>
+                            <tr class="hover:bg-gray-50"><td class="p-4 font-bold text-gray-500">2</td><td class="p-4 font-semibold text-gray-800">Dúvidas sobre divergências de dados</td><td class="p-4 text-center text-xl font-bold text-[#003f5c]">14</td></tr>
+                            <tr class="hover:bg-gray-50"><td class="p-4 font-bold text-gray-500">3</td><td class="p-4 font-semibold text-gray-800">Liberação de acesso ao portal</td><td class="p-4 text-center text-xl font-bold text-[#003f5c]">11</td></tr>
+                            <tr class="hover:bg-gray-50"><td class="p-4 font-bold text-gray-500">4</td><td class="p-4 font-semibold text-gray-800">Envio de arquivos para processamento</td><td class="p-4 text-center text-xl font-bold text-[#003f5c]">8</td></tr>
+                            <tr class="hover:bg-gray-50"><td class="p-4 font-bold text-gray-500">5</td><td class="p-4 font-semibold text-gray-800">Ajustes no sistema ou portal (melhorias)</td><td class="p-4 text-center text-xl font-bold text-[#003f5c]">7</td></tr>
+                            <tr class="hover:bg-gray-50"><td class="p-4 font-bold text-gray-500">6</td><td class="p-4 font-semibold text-gray-800">Dúvidas sobre reajuste e VCMH</td><td class="p-4 text-center text-xl font-bold text-[#003f5c]">6</td></tr>
+                            <tr class="hover:bg-gray-50"><td class="p-4 font-bold text-gray-500">7</td><td class="p-4 font-semibold text-gray-800">Problemas com login ou senha</td><td class="p-4 text-center text-xl font-bold text-[#003f5c]">4</td></tr>
+                            <tr class="hover:bg-gray-50"><td class="p-4 font-bold text-gray-500">8</td><td class="p-4 font-semibold text-gray-800">Cancelamento de relatórios ou serviços</td><td class="p-4 text-center text-xl font-bold text-[#003f5c]">3</td></tr>
+                            <tr class="hover:bg-gray-50"><td class="p-4 font-bold text-gray-500">9</td><td class="p-4 font-semibold text-gray-800">Validação de dados para primeira entrega</td><td class="p-4 text-center text-xl font-bold text-[#003f5c]">2</td></tr>
+                            <tr class="hover:bg-gray-50"><td class="p-4 font-bold text-gray-500">10</td><td class="p-4 font-semibold text-gray-800">Questões sobre coparticipação</td><td class="p-4 text-center text-xl font-bold text-[#003f5c]">1</td></tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </section>
+
+        <footer class="text-center mt-16 pt-8 border-t border-gray-200">
+            <p class="text-gray-500">Painel gerado para Suridata | Análise de atendimento com dados validados</p>
+        </footer>
+
+    </div>
+
+    <script>
+        Chart.register(ChartDataLabels);
+
+        const tooltipConfig = { plugins: { tooltip: { callbacks: { title: function(tooltipItems) { const item = tooltipItems[0]; let label = item.chart.data.labels[item.dataIndex]; if (Array.isArray(label)) { return label.join(' '); } return label; } } } } };
+
+        const labels = ['Jan', 'Fev', 'Mar', 'Abr', 'Mai', 'Jun', 'Jul', 'Ago'];
+        const volumeData = [58, 68, 81, 93, 101, 75, 79, 79];
+        const tmrData = [4.5, 4.8, 5.1, 5.5, 5.9, 4.2, 5.1, 4.9];
+        
+        const combinedVolumeCtx = document.getElementById('combinedVolumeChart');
+        if (combinedVolumeCtx) {
+            new Chart(combinedVolumeCtx, {
+                type: 'bar',
+                data: {
+                    labels: labels,
+                    datasets: [{
+                        label: 'Volume de Chamados',
+                        data: volumeData,
+                        backgroundColor: '#003f5c',
+                        yAxisID: 'y_volume',
+                    }, {
+                        label: 'TMR Mediano (h)',
+                        data: tmrData,
+                        type: 'line',
+                        borderColor: '#ef5675', backgroundColor: '#ef5675',
+                        yAxisID: 'y_tmr', tension: 0.3
+                    }]
+                },
+                options: { responsive: true, maintainAspectRatio: false, ...tooltipConfig,
+                    plugins: { ...tooltipConfig.plugins, datalabels: { display: false } },
+                    scales: {
+                        y_volume: { type: 'linear', display: true, position: 'left', title: { display: true, text: 'Nº de Chamados' } },
+                        y_tmr: { type: 'linear', display: true, position: 'right', title: { display: true, text: 'Horas (TMR)' }, grid: { drawOnChartArea: false } }
+                    }
+                }
+            });
+        }
+        
+        const monthlyTmrByDeptCtx = document.getElementById('monthlyTmrByDeptChart');
+        if (monthlyTmrByDeptCtx) {
+            new Chart(monthlyTmrByDeptCtx, {
+                type: 'line',
+                data: {
+                    labels: labels,
+                    datasets: [
+                        { label: 'Canais Digitais', data: [2.8, 2.9, 3.1, 3.5, 3.8, 2.5, 3.2, 3.1], borderColor: '#003f5c', backgroundColor: '#003f5c', tension: 0.1 },
+                        { label: 'Dir. Tecnologia', data: [20, 18, 22, 17, 19, 16, 18.0, 17.5], borderColor: '#ef5675', backgroundColor: '#ef5675', tension: 0.1 },
+                        { label: 'Dir. Saúde', data: [14, 13, 15, 12, 11.5, 11, 12.5, 12.0], borderColor: '#7a5195', backgroundColor: '#7a5195', tension: 0.1 },
+                        { label: 'Treinamento Saúde', data: [7, 6, 6.5, 5.5, 5, 4.8, 5.2, 5.1], borderColor: '#ffa600', backgroundColor: '#ffa600', tension: 0.1 },
+                        { label: 'Sucesso do Cliente', data: [4.8, 4.9, 4.5, 4.6, 4.3, 4.1, 5.3, 5.0], borderColor: '#bc5090', backgroundColor: '#bc5090', tension: 0.1 },
+                    ]
+                },
+                options: { responsive: true, maintainAspectRatio: false, ...tooltipConfig,
+                    plugins: { 
+                        ...tooltipConfig.plugins,
+                        legend: { position: 'bottom' },
+                        datalabels: { display: false } 
+                    },
+                    scales: { y: { beginAtZero: true, title: { display: true, text: 'TMR mediano (horas)' } } }
+                }
+            });
+        }
+
+        const volumeByAreaPieCtx = document.getElementById('volumeByAreaPieChart');
+        if(volumeByAreaPieCtx) {
+            new Chart(volumeByAreaPieCtx, {
+                type: 'pie',
+                data: {
+                    labels: ['Canais Digitais', 'Sucesso do Cliente', 'Dir. Tecnologia', 'Treinamento Saúde', 'Dir. Saúde', 'Não Atribuído'],
+                    datasets: [{
+                        label: 'Volume Total de Chamados',
+                        data: [171, 122, 107, 86, 49, 76],
+                        backgroundColor: ['#003f5c', '#bc5090', '#ef5675', '#ffa600', '#7a5195', '#c7c7c7'],
+                    }]
+                },
+                options: {
+                    responsive: true, maintainAspectRatio: false,
+                    plugins: {
+                        legend: { position: 'bottom' },
+                        datalabels: {
+                            formatter: (value, ctx) => {
+                                let sum = 0;
+                                let dataArr = ctx.chart.data.datasets[0].data;
+                                dataArr.map(data => { sum += data; });
+                                let percentage = (value*100 / sum).toFixed(1)+"%";
+                                return percentage;
+                            },
+                            color: '#fff',
+                            font: { weight: 'bold' }
+                        }
+                    }
+                }
+            });
+        }
+        
+        const volumeByAreaMonthlyCtx = document.getElementById('volumeByAreaMonthlyChart');
+        if (volumeByAreaMonthlyCtx) {
+            new Chart(volumeByAreaMonthlyCtx, {
+                type: 'bar',
+                data: {
+                    labels: labels,
+                    datasets: [
+                        { label: 'Canais Digitais', data: [15, 18, 22, 25, 28, 20, 23, 22], backgroundColor: '#003f5c' },
+                        { label: 'Sucesso do Cliente', data: [12, 14, 16, 18, 20, 15, 19, 18], backgroundColor: '#bc5090' },
+                        { label: 'Dir. Tecnologia', data: [10, 11, 13, 15, 17, 12, 15, 14], backgroundColor: '#ef5675' },
+                        { label: 'Treinamento Saúde', data: [8, 9, 11, 13, 14, 10, 10, 11], backgroundColor: '#ffa600' },
+                        { label: 'Dir. Saúde', data: [5, 6, 7, 8, 9, 6, 4, 5], backgroundColor: '#7a5195' },
+                        { label: 'Não Atribuído', data: [8, 10, 12, 14, 13, 12, 8, 9], backgroundColor: '#c7c7c7' }
+                    ]
+                },
+                options: { responsive: true, maintainAspectRatio: false, ...tooltipConfig,
+                    plugins: { legend: { position: 'bottom' }, datalabels: { display: false } },
+                    scales: {
+                        x: { stacked: true },
+                        y: { stacked: true, beginAtZero: true, title: { display: true, text: 'Nº de Chamados' } }
+                    }
+                }
+            });
+        }
+    </script>
+</body>
+</html>
+
